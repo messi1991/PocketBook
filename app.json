@@ -1,0 +1,27 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/logs/index"
+  ],
+  "window": {
+    "navigationBarTitleText": "日常记账簿"
+  },
+  "tabBar": {
+    "list": [{
+      "pagePath": "pages/index/index",
+      "text": "首页",
+      "iconPath": "images/tabBarIcon/Tabbar_index_icon.png",
+      "selectedIconPath": "images/tabBarIcon/Tabbar_index_Press_icon.png"
+    }, {
+      "pagePath": "pages/logs/index",
+      "text": "个人中心",
+      "iconPath": "images/tabBarIcon/Tabbar_home_icon.png",
+      "selectedIconPath": "images/tabBarIcon/Tabbar_home_Press_icon.png"
+    }]
+  },
+  "networkTimeout": {
+    "request": 10000,
+    "downloadFile": 10000
+  },
+  "debug": true
+}
