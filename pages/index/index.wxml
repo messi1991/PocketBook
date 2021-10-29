@@ -1,7 +1,14 @@
 <view>
   <van-tabs active="{{ active }}" bind:change="onChange">
     <van-tab title="支出">
-      内容 1
+      <van-row>
+        <van-col span="6">
+          <van-icon name="cart-circle-o" color="red" size="24px" />
+        </van-col>
+        <van-col span="6">span: 8</van-col>
+        <van-col span="6">span: 8</van-col>
+        <van-col span="6">span: 8</van-col>
+      </van-row>
     </van-tab>
     <van-tab title="收入">
       内容 2

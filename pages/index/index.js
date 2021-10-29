@@ -6,7 +6,7 @@ Page({
    */
   data: {
     data: appInstance.globalData,
-    active: 1,
+    active: 0,
   },
 
   onChange(event) {
