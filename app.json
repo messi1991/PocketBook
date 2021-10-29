@@ -34,7 +34,8 @@
     "van-tabs": "@vant/weapp/tabs/index", 
     "van-row": "@vant/weapp/row/index",
     "van-col": "@vant/weapp/col/index",
-    "van-icon": "@vant/weapp/icon/index"
+    "van-icon": "@vant/weapp/icon/index",
+    "van-popup": "@vant/weapp/popup/index"
   },
   "sitemapLocation": "sitemap.json"
 }

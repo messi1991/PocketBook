@@ -1,13 +1,16 @@
 <view>
   <van-tabs active="{{ active }}" bind:change="onChange">
     <van-tab title="支出">
-      <van-row>
-        <van-col span="6">
-          <van-icon name="cart-circle-o" color="red" size="24px" />
+      <van-row gutter="20">
+        <van-col span="6" wx:for="{{ list }}"
+        wx:key="index" >
+          <view class="aa" 
+            bindtap="onClick"
+            data-index="{{ index }}">
+            <van-icon name="{{ item.icon }}" color="red" size="24px" />
+            <view>{{ item.title }}</view>
+          </view>
         </van-col>
-        <van-col span="6">span: 8</van-col>
-        <van-col span="6">span: 8</van-col>
-        <van-col span="6">span: 8</van-col>
       </van-row>
     </van-tab>
     <van-tab title="收入">
@@ -15,4 +18,9 @@
     </van-tab>
   </van-tabs>
   <van-button type="primary">按钮</van-button>
+  <van-popup
+   show="{{ show }}" 
+   bind:close="onClose">
+   内容
+  </van-popup>
 </view>

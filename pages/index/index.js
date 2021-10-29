@@ -7,10 +7,72 @@ Page({
   data: {
     data: appInstance.globalData,
     active: 0,
+    show: false,
+    list: [
+      {
+        title: '餐饮',
+        icon: 'cart-circle-o"'
+      },
+      {
+        title: '购物',
+        icon: 'cart-circle-o"'
+      },
+      {
+        title: '超市',
+        icon: 'cart-circle-o"'
+      },
+      {
+        title: '交通',
+        icon: 'cart-circle-o"'
+      },
+      {
+        title: '医疗',
+        icon: 'cart-circle-o"'
+      },
+      {
+        title: '学习',
+        icon: 'cart-circle-o"'
+      },
+      {
+        title: '礼金',
+        icon: 'cart-circle-o"'
+      },
+      {
+        title: '日用',
+        icon: 'cart-circle-o"'
+      },
+      {
+        title: '通讯',
+        icon: 'cart-circle-o"'
+      },
+      {
+        title: '美容',
+        icon: 'cart-circle-o"'
+      },
+      {
+        title: '健身',
+        icon: 'cart-circle-o"'
+      },
+      {
+        title: '其他',
+        icon: 'cart-circle-o"'
+      },
+    ]
   },
 
   onChange(event) {
     
+  },
+  onClick(index) {
+    console.log("index", index);
+    this.setData({
+      show: true
+    })
+  },
+  onClose() {
+    this.setData({
+      show: false
+    })
   },
 
   /**
