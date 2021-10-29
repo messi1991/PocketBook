@@ -1,27 +1,40 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/logs/index"
+    "pages/logs/index",
+    "pages/user/user"
   ],
   "window": {
     "navigationBarTitleText": "日常记账簿"
   },
   "tabBar": {
-    "list": [{
-      "pagePath": "pages/index/index",
-      "text": "首页",
-      "iconPath": "images/tabBarIcon/Tabbar_index_icon.png",
-      "selectedIconPath": "images/tabBarIcon/Tabbar_index_Press_icon.png"
-    }, {
-      "pagePath": "pages/logs/index",
-      "text": "个人中心",
-      "iconPath": "images/tabBarIcon/Tabbar_home_icon.png",
-      "selectedIconPath": "images/tabBarIcon/Tabbar_home_Press_icon.png"
-    }]
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "images/tabBarIcon/Tabbar_index_icon.png",
+        "selectedIconPath": "images/tabBarIcon/Tabbar_index_Press_icon.png"
+      },
+      {
+        "pagePath": "pages/logs/index",
+        "text": "个人中心",
+        "iconPath": "images/tabBarIcon/Tabbar_home_icon.png",
+        "selectedIconPath": "images/tabBarIcon/Tabbar_home_Press_icon.png"
+      }
+    ]
   },
   "networkTimeout": {
     "request": 10000,
     "downloadFile": 10000
   },
-  "debug": true
+  "debug": true,
+  "usingComponents": {
+    "van-button": "@vant/weapp/button/index",
+    "van-tab": "@vant/weapp/tab/index",
+    "van-tabs": "@vant/weapp/tabs/index", 
+    "van-row": "@vant/weapp/row/index",
+    "van-col": "@vant/weapp/col/index",
+    "van-icon": "@vant/weapp/icon/index"
+  },
+  "sitemapLocation": "sitemap.json"
 }
