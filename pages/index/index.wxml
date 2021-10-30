@@ -1,7 +1,7 @@
 <view>
   <van-tabs active="{{ active }}" bind:change="onChange">
     <van-tab title="支出">
-      <van-row gutter="20">
+      <van-row>
         <van-col span="6" wx:for="{{ list }}"
         wx:key="index" >
           <view class="aa" 
@@ -17,10 +17,44 @@
       内容 2
     </van-tab>
   </van-tabs>
-  <van-button type="primary">按钮</van-button>
+  
   <van-popup
-   show="{{ show }}" 
-   bind:close="onClose">
-   内容
+    show="{{ show }}" 
+    round
+    position="bottom"
+    close-icon="close"
+    bind:close="onClose">
+    <view>
+      <view> 添加 </view>
+      <van-cell-group inset >
+        <van-cell 
+          title="日期" 
+          value="{{ date }}" 
+          bind:click="onCalendarShow" />
+          
+        <van-field
+          center 
+          model:value="{{ value }}"
+          label="金额"
+          type="digit"
+          placeholder="请输入金额"
+          input-align="right"
+          border="{{ false }}"
+        />
+        <van-field
+          center 
+          model:value="{{ value }}"
+          label="备注"
+          placeholder="请输入备注"
+          input-align="right"
+          border="{{ false }}"
+        />
+      </van-cell-group>
+    </view>
   </van-popup>
+  <van-calendar 
+    min-date="{{ minDate }}"
+    show="{{ isShowCalendar }}" 
+    bind:close="onCalendarClose" 
+    bind:confirm="onCalendarConfirm" />
 </view>
