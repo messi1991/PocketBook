@@ -1,7 +1,19 @@
-.aa {
+.list {
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
     margin-bottom: 40rpx;
+}
+.popup-box {
+
+}
+
+.popup-box-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 60px;
+    font-size: 40rpx;
+    font-weight: 600;
 }

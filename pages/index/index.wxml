@@ -4,7 +4,7 @@
       <van-row>
         <van-col span="6" wx:for="{{ list }}"
         wx:key="index" >
-          <view class="aa" 
+          <view class="list" 
             bindtap="onClick"
             data-index="{{ index }}">
             <van-icon name="{{ item.icon }}" color="red" size="24px" />
@@ -24,8 +24,10 @@
     position="bottom"
     close-icon="close"
     bind:close="onClose">
-    <view>
-      <view> 添加 </view>
+    <view class="popup-box">
+      <view class="popup-box-title"> 
+        添加{{ list[listIndex].title }}
+      </view>
       <van-cell-group inset >
         <van-cell 
           title="日期" 
