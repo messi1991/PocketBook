@@ -1,10 +1,20 @@
-// pages/logs/index.js
+import { prequest } from './../../request/http'
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    list: [],
+  },
+
+  async getList() {
+    // { method: 'POST' }
+    const { data } = await prequest('/pay/list');
+    console.log("data", data);
+    this.setData({
+      list: data
+    })
 
   },
 
@@ -26,7 +36,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    this.getList();
   },
 
   /**

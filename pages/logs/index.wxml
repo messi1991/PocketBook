@@ -1,2 +1,13 @@
 <!--pages/logs/index.wxml-->
-<text>pages/logs/index.wxml</text>
+<view>
+    <van-cell-group
+      wx:for="{{ list }}"
+      wx:key="index">
+        <van-cell 
+            title="{{ tem.payTime }}" 
+            value="{{ item.amount }}"
+            label="{{ tem.remark }}" />
+            
+    </van-cell-group>
+
+</view>

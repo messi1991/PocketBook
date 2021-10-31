@@ -12,13 +12,14 @@ Page({
   data: {
     data: appInstance.globalData,
     active: 0,
-    show: true,
+    show: false,
     isShowCalendar: false,
     minDate: new Date(2010, 0, 1).getTime(),
     date: formatDate(''),
     list: [],
     listIndex: 0,
-    value: ''
+    remark: '',
+    amount: 0,
   },
   onCalendarShow() {
     this.setData({ isShowCalendar: true });
@@ -49,17 +50,43 @@ Page({
     })
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: async function (options) {
-
+  async getTypes() {
     // { method: 'POST' }
     const { data } = await prequest('/types');
     console.log("data", data);
     this.setData({
       list: data
     })
+
+  },
+
+  async submitPayData() {
+    // { method: 'POST' }
+    const body = {
+      payTime: this.data.date,
+      amount: this.data.amount,
+      remark: this.data.remark,
+      type: this.data.list[this.data.listIndex].id
+    }
+
+    console.log("submit", body);
+    const { data } = await prequest(
+      '/pay/add',
+      { 
+        method: 'POST',
+        body,
+        data: body
+      }
+    );
+    
+
+  },
+
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: async function (options) {
+    this.getTypes();
   },
 
   /**

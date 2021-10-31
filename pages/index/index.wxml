@@ -36,7 +36,7 @@
           
         <van-field
           center 
-          model:value="{{ value }}"
+          model:value="{{ amount }}"
           label="金额"
           type="digit"
           placeholder="请输入金额"
@@ -45,13 +45,18 @@
         />
         <van-field
           center 
-          model:value="{{ value }}"
+          model:value="{{ remark }}"
           label="备注"
           placeholder="请输入备注"
           input-align="right"
           border="{{ false }}"
         />
       </van-cell-group>
+      <van-button 
+        type="primary"
+        bind:click="submitPayData">
+        提交
+      </van-button>
     </view>
   </van-popup>
   <van-calendar 
