@@ -61,24 +61,21 @@ Page({
   },
 
   async submitPayData() {
-    // { method: 'POST' }
-    const body = {
-      payTime: this.data.date,
-      amount: this.data.amount,
-      remark: this.data.remark,
-      type: this.data.list[this.data.listIndex].id
-    }
-
-    console.log("submit", body);
     const { data } = await prequest(
       '/pay/add',
       { 
         method: 'POST',
-        body,
-        data: body
+        data: {
+          payTime: this.data.date,
+          amount: this.data.amount,
+          remark: this.data.remark,
+          type: this.data.list[this.data.listIndex].id
+        }
       }
     );
-    
+    this.setData({
+      show: false
+    })
 
   },
 

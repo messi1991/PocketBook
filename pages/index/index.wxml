@@ -1,17 +1,15 @@
 <view>
   <van-tabs active="{{ active }}" bind:change="onChange">
     <van-tab title="支出">
-      <van-row>
-        <van-col span="6" wx:for="{{ list }}"
-        wx:key="index" >
-          <view class="list" 
-            bindtap="onClick"
-            data-index="{{ index }}">
-            <van-icon name="{{ item.icon }}" color="red" size="24px" />
-            <view>{{ item.title }}</view>
-          </view>
-        </van-col>
-      </van-row>
+      <van-grid>
+        <van-grid-item  
+          wx:for="{{ list }}" 
+          data-index="{{ index }}"
+          wx:key="index"
+          icon="{{ item.icon }}" 
+          bindtap="onClick"
+          text="{{ item.title }}" />
+      </van-grid>
     </van-tab>
     <van-tab title="收入">
       内容 2
@@ -21,6 +19,7 @@
   <van-popup
     show="{{ show }}" 
     round
+    closeable
     position="bottom"
     close-icon="close"
     bind:close="onClose">
@@ -52,11 +51,14 @@
           border="{{ false }}"
         />
       </van-cell-group>
-      <van-button 
-        type="primary"
-        bind:click="submitPayData">
-        提交
-      </van-button>
+      <van-divider />
+      <view class="flex-center-center">
+       <van-button 
+          type="primary"
+          bind:click="submitPayData">
+          提交
+        </van-button>
+      </view>
     </view>
   </van-popup>
   <van-calendar 

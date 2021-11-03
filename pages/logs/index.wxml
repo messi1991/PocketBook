@@ -1,12 +1,15 @@
 <!--pages/logs/index.wxml-->
 <view>
     <van-cell-group
+      inset
+      title="{{ item.payTime }}"
       wx:for="{{ list }}"
       wx:key="index">
         <van-cell 
-            title="{{ tem.payTime }}" 
-            value="{{ item.amount }}"
-            label="{{ tem.remark }}" />
+          title="{{ item.type.title }}" 
+          value="-{{ item.amount }}"
+          icon="{{ item.type.icon }}"
+          label="{{ tem.remark }}" />
             
     </van-cell-group>
 
