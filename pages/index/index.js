@@ -67,7 +67,7 @@ Page({
         method: 'POST',
         data: {
           payTime: this.data.date,
-          amount: this.data.amount,
+          amount: this.data.amount-0,
           remark: this.data.remark,
           type: this.data.list[this.data.listIndex].id
         }
