@@ -76,7 +76,7 @@ class PreQuest extends Middleware {
 
   async controller(ctx, opt = {}) {
     await this.exec(ctx, async ctx => {
-      ctx.response = await this.adapter(ctx.request);
+      ctx.response = (await this.adapter(ctx.request)).data;
     }, opt);
     return ctx.response;
   }

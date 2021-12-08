@@ -18,4 +18,5 @@ prequest.use(async (ctx,next) => {
   console.log('查看响应数据', ctx.response)
 })
 
+
 export { prequest, wxUpload, wxDownload }

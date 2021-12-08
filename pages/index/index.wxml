@@ -9,3 +9,17 @@
     收入: {{ 0 }}
   </van-col>
 </van-row>
+<view>
+  <van-cell-group
+    inset
+    title=""
+    wx:for="{{ listData.dataList }}"
+    wx:key="index">
+    <van-cell 
+      title="{{ item.type.title }}" 
+      value="-{{ item.amount }}"
+      icon="{{ item.type.icon }}"
+      label="{{ item.payTime }} {{ item.remark }}" />
+  </van-cell-group>
+
+</view>
