@@ -1,81 +1,23 @@
 import { prequest } from './../../request/http'
-var appInstance = getApp();
-const formatDate = (date) => {
-  date = date ? new Date(date) : new Date();
-  return `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`;
-}
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    data: appInstance.globalData,
-    active: 0,
-    show: false,
-    isShowCalendar: false,
-    minDate: new Date(2010, 0, 1).getTime(),
-    date: formatDate(''),
-    list: [],
-    listIndex: 0,
-    remark: '',
-    amount: 0,
-  },
-  onCalendarShow() {
-    this.setData({ isShowCalendar: true });
-  },
-  onCalendarClose() {
-    this.setData({ isShowCalendar: false });
-  },
-  onCalendarConfirm(event) {
-    this.setData({
-      isShowCalendar: false,
-      date: formatDate(event.detail),
-    });
+    listData: {
+      total: ''
+    }
   },
 
-  onChange(event) {
-    
-  },
-  onClick({ currentTarget: { dataset: { index = 0 } } }) {
-    console.log("index", index);
-    this.setData({
-      show: true,
-      listIndex: index
-    })
-  },
-  onClose() {
-    this.setData({
-      show: false
-    })
-  },
-
-  async getTypes() {
+  async getList() {
     // { method: 'POST' }
-    const { data } = await prequest('/types');
-    console.log("data", data);
-    this.setData({
-      list: data
-    })
-
-  },
-
-  async submitPayData() {
-    const { data } = await prequest(
-      '/pay/add',
-      { 
-        method: 'POST',
-        data: {
-          payTime: this.data.date,
-          amount: this.data.amount-0,
-          remark: this.data.remark,
-          type: this.data.list[this.data.listIndex].id
-        }
-      }
-    );
-    this.setData({
-      show: false
-    })
+    const { code, data } = await prequest('/pay/list');
+    if (code === 0) {
+      this.setData({
+        listData: data
+      })
+    }
 
   },
 
@@ -97,7 +39,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    this.getList();
   },
 
   /**

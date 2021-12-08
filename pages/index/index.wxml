@@ -1,69 +1,11 @@
-<view>
-  <van-tabs active="{{ active }}" bind:change="onChange">
-    <van-tab title="支出">
-      <van-grid>
-        <van-grid-item  
-          wx:for="{{ list }}" 
-          data-index="{{ index }}"
-          wx:key="index"
-          icon="{{ item.icon }}" 
-          bindtap="onClick"
-          text="{{ item.title }}" />
-      </van-grid>
-    </van-tab>
-    <van-tab title="收入">
-      内容 2
-    </van-tab>
-  </van-tabs>
-  
-  <van-popup
-    show="{{ show }}" 
-    round
-    closeable
-    position="bottom"
-    close-icon="close"
-    bind:close="onClose">
-    <view class="popup-box">
-      <view class="popup-box-title"> 
-        添加{{ list[listIndex].title }}
-      </view>
-      <van-cell-group inset >
-        <van-cell 
-          title="日期" 
-          value="{{ date }}" 
-          bind:click="onCalendarShow" />
-          
-        <van-field
-          center 
-          model:value="{{ amount }}"
-          label="金额"
-          type="digit"
-          placeholder="请输入金额"
-          input-align="right"
-          border="{{ false }}"
-        />
-        <van-field
-          center 
-          model:value="{{ remark }}"
-          label="备注"
-          placeholder="请输入备注"
-          input-align="right"
-          border="{{ false }}"
-        />
-      </van-cell-group>
-      <van-divider />
-      <view class="flex-center-center">
-       <van-button 
-          type="primary"
-          bind:click="submitPayData">
-          提交
-        </van-button>
-      </view>
-    </view>
-  </van-popup>
-  <van-calendar 
-    min-date="{{ minDate }}"
-    show="{{ isShowCalendar }}" 
-    bind:close="onCalendarClose" 
-    bind:confirm="onCalendarConfirm" />
-</view>
+<van-row>
+  <van-col span="8">
+    时间
+  </van-col>
+  <van-col span="8">
+    支出: {{ listData.total }}
+  </van-col>
+  <van-col span="8">
+    收入: {{ 0 }}
+  </van-col>
+</van-row>
