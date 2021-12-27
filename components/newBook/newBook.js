@@ -35,11 +35,12 @@ Component({
   },
   observers: {
     'params': function(e) {
-      console.log("params", e)
+      const _params = e || {}
+      console.log("params", _params)
       this.setData({
-        date: e.payTime || formatDate(''),
-        remark: e.remark || '',
-        amount: e.amount || 0,
+        date: _params.payTime || formatDate(''),
+        remark: _params.remark || '',
+        amount: _params.amount || 0,
       })
     }
   },
@@ -55,8 +56,8 @@ Component({
    */
   methods: {
     async submitPayData() {
-      const _arr = ['/pay/add', '/pay/add']
-      const { data } = await prequest(
+      const _arr = ['/pay/add', '/pay/update']
+      const { code, data } = await prequest(
         _arr[this.data.type],
         { 
           method: 'POST',
@@ -64,14 +65,14 @@ Component({
             payTime: this.data.date,
             amount: this.data.amount-0,
             remark: this.data.remark,
-            type: this.data.params.typeId || 0
+            type: this.data.params.id || 0,
+            id: this.data.params.id || 0
           }
         }
       );
-      this.setData({
-        show: false
-      })
-      console.log("aaaa", this.data.formData)
+      if(code === 0) {
+        this.triggerEvent('sucess')
+      }
     },
     onCalendarShow() {
       this.setData({ isShowCalendar: true });

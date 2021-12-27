@@ -5,9 +5,6 @@
     flex-direction: column;
     margin-bottom: 40rpx;
 }
-.popup-box {
-
-}
 
 .popup-box-title {
     display: flex;

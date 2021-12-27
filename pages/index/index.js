@@ -91,5 +91,11 @@ Page({
     this.setData({
       isShowPoput: false
     })
+  },
+  onSucess() {
+    this.setData({
+      isShowPoput: false
+    })
+    this.getList();
   }
 })

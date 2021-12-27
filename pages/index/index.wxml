@@ -26,8 +26,9 @@
 
   <new-book 
     params="{{ params }}" 
-    title="测试" 
+    type="{{ 1 }}"
     bind:close="onClose"
+    bind:sucess="onSucess"
     isShowPoput="{{isShowPoput}}">
   </new-book>
 

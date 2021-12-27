@@ -12,7 +12,7 @@ Page({
   data: {
     data: appInstance.globalData,
     active: 0,
-    show: false,
+    isShowPoput: false,
     isShowCalendar: false,
     minDate: new Date(2010, 0, 1).getTime(),
     date: formatDate(''),
@@ -21,62 +21,32 @@ Page({
     remark: '',
     amount: 0,
   },
-  onCalendarShow() {
-    this.setData({ isShowCalendar: true });
-  },
-  onCalendarClose() {
-    this.setData({ isShowCalendar: false });
-  },
-  onCalendarConfirm(event) {
-    this.setData({
-      isShowCalendar: false,
-      date: formatDate(event.detail),
-    });
-  },
 
   onChange(event) {
     
   },
   onClick({ currentTarget: { dataset: { index = 0 } } }) {
-    console.log("index", index);
     this.setData({
-      show: true,
+      isShowPoput: true,
       listIndex: index
-    })
-  },
-  onClose() {
-    this.setData({
-      show: false
     })
   },
 
   async getTypes() {
     // { method: 'POST' }
     const { data } = await prequest('/types');
-    console.log("data", data);
     this.setData({
       list: data
     })
 
   },
-
-  async submitPayData() {
-    const { data } = await prequest(
-      '/pay/add',
-      { 
-        method: 'POST',
-        data: {
-          payTime: this.data.date,
-          amount: this.data.amount-0,
-          remark: this.data.remark,
-          type: this.data.list[this.data.listIndex].id
-        }
-      }
-    );
+  onClose() {
     this.setData({
-      show: false
+      isShowPoput: false
     })
-
+  },
+  onSucess() {
+    this.onClose()
   },
 
   /**
