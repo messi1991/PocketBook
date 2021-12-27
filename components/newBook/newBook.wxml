@@ -1,0 +1,54 @@
+<!--components/newBook.wxml-->
+<text>components/newBook.wxml</text>
+  <van-popup
+    show="{{ isShowPoput }}" 
+    round
+    closeable
+    position="bottom"
+    close-icon="close"
+    bind:close="onClose">
+    <view class="popup-box">
+      <view class="popup-box-title"> 
+        添加{{ params.type.title }}
+      </view>
+      <van-cell-group inset >
+        <van-cell 
+          title="日期" 
+          value="{{ date }}" 
+          placeholder="请选择日期"
+          bind:click="onCalendarShow" />
+          
+        <van-field
+          center 
+          model:value="{{ amount }}"
+          label="金额"
+          type="digit"
+          placeholder="请输入金额"
+          input-align="right"
+          border="{{ false }}"
+        />
+        <van-field
+          center 
+          model:value="{{ remark }}"
+          label="备注"
+          placeholder="请输入备注"
+          input-align="right"
+          border="{{ false }}"
+        />
+      </van-cell-group>
+      <van-divider />
+      <view class="flex-center-center">
+       <van-button 
+          type="primary"
+          bind:click="submitPayData">
+          提交
+        </van-button>
+      </view>
+    </view>
+  </van-popup>
+  <van-calendar 
+    min-date="{{ minDate }}"
+    default-date="{{ date }}"
+    show="{{ isShowCalendar }}" 
+    bind:close="onCalendarClose" 
+    bind:confirm="onCalendarConfirm" />

@@ -1,0 +1,16 @@
+.popup-box {
+
+}
+.popup-box-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 60px;
+    font-size: 40rpx;
+    font-weight: 600;
+}
+.flex-center-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

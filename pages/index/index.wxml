@@ -16,10 +16,19 @@
     wx:for="{{ listData.dataList }}"
     wx:key="index">
     <van-cell 
+      bind:click="onClickCall"
+      data-params="{{ item }}"
       title="{{ item.type.title }}" 
       value="-{{ item.amount }}"
       icon="{{ item.type.icon }}"
       label="{{ item.payTime }} {{ item.remark }}" />
   </van-cell-group>
+
+  <new-book 
+    params="{{ params }}" 
+    title="测试" 
+    bind:close="onClose"
+    isShowPoput="{{isShowPoput}}">
+  </new-book>
 
 </view>

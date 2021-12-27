@@ -8,7 +8,9 @@ Page({
     listData: {
       total: '',
       dataList: []
-    }
+    },
+    isShowPoput: false,
+    params: {}
   },
 
   async getList() {
@@ -76,5 +78,18 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+  onClickCall(e) {
+    const params = e.currentTarget.dataset.params || {};
+    console.log("click", params)
+    this.setData({
+      isShowPoput: true,
+      params: params
+    })
+  },
+  onClose() {
+    this.setData({
+      isShowPoput: false
+    })
   }
 })
