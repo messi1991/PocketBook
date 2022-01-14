@@ -31,7 +31,7 @@ Component({
     minDate: new Date(2010, 0, 1).getTime(),
     date: formatDate(''),
     remark: '',
-    amount: 0,
+    amount: '',
   },
   observers: {
     'params': function(e) {
@@ -40,7 +40,7 @@ Component({
       this.setData({
         date: _params.payTime || formatDate(''),
         remark: _params.remark || '',
-        amount: _params.amount || 0,
+        amount: _params.amount || '',
       })
     }
   },
